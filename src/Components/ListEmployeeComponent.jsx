@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 import SockJsClient from 'react-stomp';
 import '../styles/listComponent.css';
 import EmployeeService from '../services/EmployeeService';
@@ -69,24 +68,6 @@ class ListEmployeeComponent extends Component {
                     </div>
 
                 </div>
-
-                {
-                    (
-                    <>
-                        <SockJsClient
-                        url={SOCKET_URL}
-                        topics={['/topic/group']}
-                        onConnect={onConnected}
-                        onDisconnect={console.log("Disconnected!")}
-                        onMessage={msg => onMessageReceived(msg)}
-                        debug={false}
-                        />
-                        <Messages
-                        messages={messages}
-                        />
-                    </>
-                    ) 
-                }
 
                 <div className="row">
                     <table className="table table-striped table-bordered">
